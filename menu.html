@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilomenu.css"/>
+    <title>Pagina dos guerreiros Z</title>
+</head>
+<body onload="verificaLogado();obtemDados('pessoas')">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- navbar-->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="imagem/esferasdodragao.png" alt="logo esfera do dragão" title="logo esfera do dragão" width="50"> Torneio
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Casa do Goku</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Casa do Kame</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Plataforma Celeste</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Sala do Tempo</a>
+              </li>
+            </ul>
+          </div>
+          <div class="text-right">
+            <ul class="navbar-nav ms-auto flex-nowrap">
+              <li class="nav-item">
+                <button type="button" class="btn btn-lg btn-outline-danger" onclick="logoutFirebase()"><img src="imagem/goku2.png" alt="emoji goku" title="emoji goku" width="18"> Logout</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <!--Formulario-->
+        <h3 class="text-light"><img src="imagem/shenlong.png" alt="emoji shenlong" title="emoji shenlong" width="50"> Inscrição Torneio do Poder</h3>
+        <form id="formCadastro">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome Completo" autofocus />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="E-mail">
+          </div>
+          <div class="form-group">
+            <label for="nascimento">Nascimento</label>
+            <input type="date" class="form-control" name="nascimento" id="nascimento">
+          </div>
+          <div class="form-group">
+            <label for="salario">Salário</label>
+            <input type="number" class="form-control" name="salario" min="0" id="salario" step="0.01"
+              placeholder="R$" />
+          </div>
+          <div class="form-group my-2">
+            <label for="sexo">Sexo</label><br>
+            <input type="radio" class="btn-check" name="sexo" id="sexoM" value="Masculino" checked>
+            <label class="btn btn-lg btn-outline-info" for="sexoM"><img src="imagem/goku1.png" alt="emoji goku" title="emoji goku" width="18"> Masculino</label>
+
+            <input type="radio" class="btn-check" name="sexo" id="sexoF" value="Feminino">
+            <label class="btn btn-lg btn-outline-danger" for="sexoF"><img src="imagem/pan.png" alt="emoji pan" title="emoji pan" width="15"> Feminino</label>
+          </div>
+          <div class="form-group">
+            <input type="hidden" name="id" id="id">
+            <button class="btn btn-lg btn-outline-info my-4" onclick="salvar(event, 'pessoas')">💾 Salvar</button>
+            <button class="btn btn-lg btn-outline-danger my-4" onclick="document.getElementById('formCadastro').reset()">🧹 Limpar</button>
+          </div>
+        </form>
+      </div>
+            <div class="col-md-8">
+                <!--Tabela-->
+                 <h3 class="text-light"><img src="imagem/Anunciador.png" alt="emoji Anunciador" title="emoji Anunciador" width="50"> Listagem de Pessoas</h3>
+                <table id="tabelaDados" class="table table-striped table-bordered table-hover table-dark">    
+                  <!-- Conteúdo do Firebase será inserido aqui -->
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!--carregando o js do firebase da google-->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+    <!--carregando os nossos JS-->
+    <script src="js/firebase.js"></script>
+    <script src="js/authentication.js"></script>
+    <script src="js/dados.js"></script> 
+</body>
+</html>

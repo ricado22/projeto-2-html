@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Oswald:wght@200&display=swap');
+body{
+    background: url("https://recantododragao.com.br/wp-content/uploads/2017/04/Dragon-Ball-Super.jpg") no-repeat;
+    background-size: cover;
+    font-family: 'Oswald', sans-serif;
+    color: rgb(226, 82, 82);
+}
