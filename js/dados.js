@@ -93,7 +93,7 @@ function salvar(event, collection) {
   if (document.getElementById('nome').value === '') { alert('⚠️É obrigatório informar o nome!') }
   else if (document.getElementById('email').value === '') { alert('⚠️É obrigatório informar o email!') }
   else if (document.getElementById('nascimento').value === '') { alert('⚠️É obrigatório informar o nascimento!') }
-  else if (document.getElementById('salario').value === '') { alert('⚠️É obrigatório informar o salário!') }
+  else if (document.getElementById('salario').value <0) { alert('⚠️É obrigatório informar um valor positivo para o salário!') }
   else if (document.getElementById('id').value !== '') { alterar(event, collection) }
   else { incluir(event, collection) }
 }
